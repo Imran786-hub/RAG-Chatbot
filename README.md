@@ -1,82 +1,157 @@
-# AI Knowledge Base & Document Ingestion Pipeline
+# 🧠 AI Knowledge Base & Document Ingestion Pipeline
 
-A powerful Retrieval-Augmented Generation (RAG) system that lets you chat with your documents. Built with Flask, LangChain, Google Gemini, and FAISS.
+A powerful **Retrieval-Augmented Generation (RAG)** system that allows users to interact with their documents like a chatbot. Built using **Flask, LangChain, Google Gemini, and FAISS**, this system delivers accurate, context-aware answers from uploaded documents.
 
-## 🚀 Features
+---
 
-- **Multi-Format Support**: Ingest PDF, Word (.docx), and Text (.txt) files.
-- **RAG Architecture**: Uses Google Gemini embeddings and FAISS vector store for accurate retrieval.
-- **Smart Chat Interface**: 
-  - Multi-turn conversation memory.
-  - Professional dark-themed UI.
-  - Real-time streaming responses.
-- **Voice Interaction**:
-  - **Speech-to-Text (STT)**: Speak your questions.
-  - **Text-to-Speech (TTS)**: Listen to AI responses.
-  - Hands-free mode with auto-silence detection (2s kill time).
+## 🌟 Key Features
+
+* 📄 **Multi-Format Support**
+  Upload and process PDF, DOCX, and TXT files seamlessly.
+
+* 🤖 **RAG-Based Smart Retrieval**
+  Uses **Google Gemini embeddings + FAISS vector database** for precise and relevant answers.
+
+* 💬 **Interactive Chat System**
+
+  * Multi-turn conversation memory
+  * Real-time response streaming
+  * Clean and modern dark UI
+
+* 🎙️ **Voice Assistant Integration**
+
+  * Speech-to-Text (ask questions via voice)
+  * Text-to-Speech (AI speaks answers)
+  * Auto silence detection (hands-free experience)
+
+---
+
+## 🧠 How It Works
+
+1. User uploads documents
+2. Text is extracted and split into chunks
+3. Chunks are converted into embeddings using Gemini
+4. Stored in FAISS vector database
+5. User query → converted to embedding
+6. Relevant chunks retrieved
+7. Gemini generates final answer
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Backend**: Python, Flask
-- **AI/ML**: LangChain, Google Gemini (Embeddings & Chat), FAISS
-- **Frontend**: HTML5, CSS3 (Dark Mode), JavaScript (Web Speech API)
+* **Backend**: Python, Flask
+* **AI/ML**: LangChain, Google Gemini (Embeddings + Chat)
+* **Vector DB**: FAISS
+* **Frontend**: HTML, CSS (Dark UI), JavaScript
+* **Voice Tech**: Web Speech API
+
+---
+
+## ⚡ Why This Project is Unique
+
+* Combines **RAG + Voice Interaction** (rare combo)
+* Works like **ChatGPT for your own documents**
+* Supports **real-time streaming + memory**
+* Useful for:
+
+  * 📚 Students (notes & PDFs)
+  * 💼 Professionals (reports, docs)
+  * 🏢 Companies (knowledge base systems)
+
+---
 
 ## 📦 Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd document-ingestion-pipeline
-   ```
+### 1. Clone Repository
 
-2. **Set up a virtual environment**
-   ```bash
-   python -m venv venv
-   # Windows
-   venv\Scripts\activate
-   # macOS/Linux
-   source venv/bin/activate
-   ```
+```bash
+git clone <repository-url>
+cd document-ingestion-pipeline
+```
 
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 2. Create Virtual Environment
 
-4. **Environment Variables**
-   Ensure you have access to Google Gemini API keys if required for the embedding models.
+```bash
+python -m venv venv
+```
 
-## 🏃‍♂️ Running the Application
+Activate:
 
-1. **Start the Flask server**
-   ```bash
-   python app.py
-   ```
+```bash
+# Windows
+venv\Scripts\activate
 
-2. **Open the Web UI**
-   Navigate to `http://localhost:5000` in your browser.
+# macOS/Linux
+source venv/bin/activate
+```
 
-## 💡 Usage Guide
+### 3. Install Dependencies
 
-1. **Upload Documents**: Drag & drop or select PDF/DOCX/TXT files in the "Upload Knowledge" section.
-2. **Wait for Processing**: The system chunks, embeds, and indexes your documents.
-3. **Start Chatting**: 
-   - Type your question in the chat input.
-   - Or click the **Mic icon** to speak your query.
-   - Click the **Speaker icon** next to the response to hear it read aloud.
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Setup Environment Variables
+
+Add your **Google Gemini API Key**:
+
+```bash
+export GOOGLE_API_KEY=your_api_key_here
+```
+
+---
+
+## ▶️ Run the Project
+
+```bash
+python app.py
+```
+
+Open browser:
+
+```
+http://localhost:5000
+```
+
+---
+
+## 💡 Usage
+
+1. Upload your documents
+2. Wait for processing
+3. Ask questions (text or voice)
+4. Get intelligent answers instantly
+
+---
 
 ## 📂 Project Structure
 
 ```
 document-ingestion-pipeline/
-├── app.py                 # Main Flask application & RAG logic
-├── requirements.txt       # Python dependencies
-├── data/                  # Directory for raw and processed data
+├── app.py
+├── requirements.txt
+├── data/
 ├── templates/
-│   └── index.html         # Frontend UI
-└── README.md              # Project documentation
+│   └── index.html
+├── static/
+└── README.md
 ```
 
-## 📄 License
+---
 
-MIT License
+## 🔐 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## 🙌 Author
+
+**Imran**
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
