@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Based ChatBot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="theme-system">
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p>Processing...</p>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1><i class="fas fa-brain"></i> RAG ChatBot</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item active">
+                        <a href="#"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><i class="fas fa-file-alt"></i> Documents</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><i class="fas fa-comments"></i> Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="theme-toggle" class="theme-toggle-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h2>Document Library</h2>
+                <p>Upload and manage your knowledge base documents</p>
+            </header>
+
+            <!-- Upload Area -->
+            <section class="upload-section">
+                <div id="drop-area" class="drop-area">
+                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                    <h3>Drag & Drop Files</h3>
+                    <p>Supports PDF, DOCX, and TXT files</p>
+                    <button id="browse-btn" class="browse-btn">Browse Files</button>
+                    <input type="file" id="file-input" accept=".pdf,.docx,.txt" hidden>
+                </div>
+            </section>
+
+            <!-- Document List -->
+            <section class="documents-section">
+                <div class="section-header">
+                    <h3>Your Documents</h3>
+                    <div class="stats">
+                        <span id="doc-count">0 documents</span>
+                    </div>
+                </div>
+                <div id="documents-list" class="documents-list">
+                    <!-- Documents will be loaded here -->
+                    <div class="empty-state">
+                        <i class="fas fa-file-alt empty-icon"></i>
+                        <h4>No documents yet</h4>
+                        <p>Upload your first document to get started</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Chat Panel -->
+        <aside class="chat-panel">
+            <div class="chat-header">
+                <h3>AI Assistant</h3>
+                <button id="clear-chat-btn" class="clear-chat-btn">
+                    <i class="fas fa-trash-alt"></i> Clear Chat
+                </button>
+            </div>
+
+            <!-- Search Mode Selector -->
+            <div class="search-mode-selector">
+                <label for="search-mode">Search Mode:</label>
+                <select id="search-mode" class="search-mode-dropdown">
+                    <option value="semantic">Semantic</option>
+                    <option value="keyword">Keyword</option>
+                    <option value="hybrid">Hybrid</option>
+                </select>
+            </div>
+
+            <!-- Chat Messages -->
+            <div id="chat-messages" class="chat-messages">
+                <div class="message assistant-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>Hello! I'm your AI assistant. Upload some documents and ask me questions about their content.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-container">
+                <div class="input-wrapper">
+                    <button id="mic-btn" class="mic-btn">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <input type="text" id="chat-input" class="chat-input" placeholder="Ask something about your documents...">
+                    <button id="send-btn" class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="voice-controls">
+                    <label class="auto-speak-toggle">
+                        <input type="checkbox" id="auto-speak-checkbox">
+                        <span class="toggle-slider"></span>
+                        Auto-Speak Responses
+                    </label>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
