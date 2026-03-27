@@ -1,4 +1,7 @@
 # 🧠 AI Knowledge Base & Document Ingestion Pipeline
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Flask](https://img.shields.io/badge/Framework-Flask-green)
 
 A powerful **Retrieval-Augmented Generation (RAG)** system that allows users to interact with their documents like a chatbot. Built using **Flask, LangChain, Google Gemini, and FAISS**, this system delivers accurate, context-aware answers from uploaded documents.
 
